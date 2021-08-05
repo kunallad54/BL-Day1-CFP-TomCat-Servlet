@@ -1,3 +1,11 @@
+/***************************************************************
+ * 
+ * Purpose : Creating a Servlet
+ * 
+ * @author Krunal Lad
+ * @since 05-08-2021
+ * 
+ **************************************************************/
 package com.brigelabz.krunal;
 
 import java.io.IOException;
@@ -12,6 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/FirstServlet")
 public class FirstServlet extends HttpServlet{
 
+	/**
+	 * Purpose : used toGet method to allow servlet to handle the request
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
