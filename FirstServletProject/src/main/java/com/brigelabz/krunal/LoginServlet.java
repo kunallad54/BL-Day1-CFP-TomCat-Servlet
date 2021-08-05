@@ -23,13 +23,13 @@ import javax.servlet.http.HttpServletResponse;
 		description = "Login Servlet Testing",
 		urlPatterns = { "/LoginServlet" },
 		initParams = {
-				@WebInitParam(name = "user", value = "Krunal"),
+				@WebInitParam(name = "user", value = "krunal"),
 				@WebInitParam(name = "password", value = "BridgeLabz")
 		}
 )
 
 public class LoginServlet extends HttpServlet{
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -41,7 +41,10 @@ public class LoginServlet extends HttpServlet{
 		// get servlet config init params
 		String userID = getServletConfig().getInitParameter("user");
 		String password = getServletConfig().getInitParameter("password");
-		if(userID.equals(user) && password.equals(pwd)) {
+		
+		// UC3 : Validating name of the user		
+		String nameRegex = "^[A-Z][a-z]{2,}";
+		if(userID.equals(user) && userID.matches(nameRegex) && password.equals(pwd)) {
 			req.setAttribute("user",user);
 			req.getRequestDispatcher("LoginSuccess.jsp").forward(req, resp);
 		} else {
